@@ -1,13 +1,66 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+#main {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  justify-content: center
+}
+.topnav {
+  overflow: hidden;
+  background-color: #FF4500;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold
+}
+
+#postTitle {
+  font-size: 20px;
+  font-weight: bold
+}
+
+#content {
+  border-style: outset;
+  padding: 10px;
+  border: 5px solid black;
+  margin: 0;
+}
+</style>
 <head>
     <title>
-        This is the title
+        Subreddit Content Requester
     </title>
 </head>
-    <form method="post">
-    {% csrf_token %}
-    {{ form }}
-    </form>
+<body>
+<div class="topnav">
+    <a>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+        </form>
+    </a>
+</div>
+{% for post in posts %}
+    <div id="content">
+        <a id=postTitle href="https://www.reddit.com{{ post.url }}">{{ post.title }}</a>
+        <p><img src="https://external-preview.redd.it/vWYcdynWxuFy6bKYpZwuw6KiNgYuBPM6daHCwWRs4mo.png?auto=webp&s=fe3bf857b3c9f1369aed1ea0bc5e1acd8ae39449"
+                height="20px" width="20px"/> {{ post.score }}</p>
+        {% if post.thumbnail %}
+            <img src={{ post.thumbnail }} alt="">
+        {% endif %}
+        {% if post.text %}
+            <p>{{ post.text }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
 </body>
 </html>
