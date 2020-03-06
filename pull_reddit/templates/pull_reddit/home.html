@@ -49,18 +49,28 @@
         </form>
     </a>
 </div>
-{% for post in posts %}
-    <div id="content">
-        <a id=postTitle href="https://www.reddit.com{{ post.url }}">{{ post.title }}</a>
-        <p><img src="https://external-preview.redd.it/vWYcdynWxuFy6bKYpZwuw6KiNgYuBPM6daHCwWRs4mo.png?auto=webp&s=fe3bf857b3c9f1369aed1ea0bc5e1acd8ae39449"
-                height="20px" width="20px"/> {{ post.score }}</p>
-        {% if post.thumbnail %}
-            <img src={{ post.thumbnail }} alt="">
-        {% endif %}
-        {% if post.text %}
-            <p>{{ post.text }}</p>
-        {% endif %}
-    </div>
-{% endfor %}
+{% if posts %}
+    {% for post in posts %}
+        <div id="content">
+            <a id=postTitle href="https://www.reddit.com{{ post.url }}">{{ post.title }}</a>
+            <p><img src="https://external-preview.redd.it/vWYcdynWxuFy6bKYpZwuw6KiNgYuBPM6daHCwWRs4mo.png?auto=webp&s=fe3bf857b3c9f1369aed1ea0bc5e1acd8ae39449"
+                    height="20px" width="20px"/> {{ post.score }}</p>
+            {% if post.thumbnail %}
+                <img src={{ post.thumbnail }} alt="">
+            {% endif %}
+            {% if post.text %}
+                <p>{{ post.text }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% else %}
+    {% if code %}
+        <div>
+            <h3>Error Code {{ code }}</h3>
+            <p>Woops! Seems like we couldn't find what you were looking for! Try searching for a different
+            subreddit.</p>
+        </div>
+    {% endif %}
+{% endif %}
 </body>
 </html>

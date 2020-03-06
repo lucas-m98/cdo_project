@@ -1,5 +1,6 @@
 
 class RedditPost():
+
     # Initializer for a single reddit post class
     def __init__(self, input):
         self.title = input["title"]
@@ -10,7 +11,6 @@ class RedditPost():
             self.thumbnail = input["thumbnail"]
         else:
             self.thumbnail = False
-
         if self.thumbnail == "self":
             full_text = input['selftext']
             if len(full_text) > 100:
@@ -18,8 +18,6 @@ class RedditPost():
             self.text = full_text
         else:
             self.text = False
-
-
         if self.thumbnail == "self" or self.thumbnail == "default" or self.thumbnail == "nsfw":
             self.thumbnail = False
 
