@@ -2,6 +2,17 @@ This project is a simple sub-reddit search tool that uses the Django framework t
 python requests library to handle to interfacing between Reddit and this web app.
 
 In order to launch the application locally, all that needs to be done is run:
+( May need to do the following:
+apt install python3
+apt install python-pip
+apt install virtualenv
+Depending on the currently installed applications)
+
+virtualenv env
+
+pip install Django
+
+pip install requests
 
 python manage.py runserver
 
