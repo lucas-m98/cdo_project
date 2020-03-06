@@ -19,7 +19,8 @@ file with all of the collected components from the request. Once this is done, t
 user who can then navigate the page to look for any posts that suit their fancy and click on the hyperlinked
 title to be redirected to the post itself. 
 
-The project is also hosted on an AWS EC2 instance with a public IP of 18.222.54.18. (:8000)
+The project is also hosted on an AWS EC2 instance at 
+http://ec2-18-222-54-18.us-east-2.compute.amazonaws.com:8000
 
 Because of the Django filler, the important files to note are:
 - post.py
